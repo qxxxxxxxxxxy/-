@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="s" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -66,7 +68,7 @@ $(".stu_login_error").Validform({
 		cssctl(objtip,o.type);
 		objtip.text(msg);
 	},
-	ajaxPost:true
+	//ajaxPost:true
 });
 /*导师登录信息验证*/
 $("#tea_username_hide").focus(function(){
@@ -111,7 +113,7 @@ $(".tea_login_error").Validform({
 		cssctl(objtip,o.type);
 		objtip.text(msg);
 	},
-	ajaxPost:true
+	//ajaxPost:true
 });
 /*教务登录信息验证*/
 $("#sec_username_hide").focus(function(){
@@ -156,7 +158,7 @@ $(".sec_login_error").Validform({
 		cssctl(objtip,o.type);
 		objtip.text(msg);
 	},
-	ajaxPost:true
+	//ajaxPost:true
 });
 });
 </script>
@@ -230,20 +232,20 @@ $(function(){
    <!-- 导师登录开始-->
     <div class="hide">
      <div class="tea_error_box"></div>
-      <form action="" method="post" class="tea_login_error">
+      <form action="${s}/teacher/login" method="post" class="tea_login_error">
         <div id="username">
           <label>教工号：</label>
-          <input type="text" id="tea_username_hide" name="username" value="输入教工号" nullmsg="教工号不能为空！" datatype="s6-18" errormsg="教工号范围在6~18个字符之间！" sucmsg="教工号验证通过！"/>
+          <input type="text" id="tea_username_hide" name="teacherId" value="输入教工号" nullmsg="教工号不能为空！" datatype="s6-18" errormsg="教工号范围在6~18个字符之间！" sucmsg="教工号验证通过！"/>
           <!--ajaxurl="demo/valid.jsp"--> 
         </div>
         <div id="password">
           <label>密&nbsp;&nbsp;&nbsp;码：</label>
-          <input type="password" id="tea_password_hide" name="password" value="输入密码" nullmsg="密码不能为空！" datatype="*6-16" errormsg="密码范围在6~16位之间！" sucmsg="密码验证通过！"/>
+          <input type="password" id="tea_password_hide" name="passWord" value="输入密码" nullmsg="密码不能为空！" datatype="*6-16" errormsg="密码范围在6~16位之间！" sucmsg="密码验证通过！"/>
         </div>
         <div id="code">
           <label>验证码：</label>
           <input type="text" id="tea_code_hide" name="code"  value="输入验证码" nullmsg="验证码不能为空！" datatype="*4-4" errormsg="验证码有4位数！" sucmsg="验证码验证通过！"/>
-          <img src="../images/captcha.jpg" title="点击更换" alt="验证码占位图"/> </div>
+          <img src="images/captcha.jpg" title="点击更换" alt="验证码占位图"/> </div>
         <div id="remember">
           <input type="checkbox" name="remember"/>
           <label>记住密码</label>

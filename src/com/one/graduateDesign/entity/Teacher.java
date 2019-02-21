@@ -17,10 +17,9 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="TEACHER")
 public class Teacher {
 	private Integer Id;
-	private int teacherId;
+	private String teacherId;
 	private String name;
 	private String password;
-	private Student student;
 	private Set<Project>project = new HashSet<Project>();
 	
 	@Id
@@ -32,10 +31,10 @@ public class Teacher {
 	public void setId(Integer id) {
 		Id = id;
 	}
-	public int getTeacherId() {
+	public String getTeacherId() {
 		return teacherId;
 	}
-	public void setTeacherId(int teacherId) {
+	public void setTeacherId(String teacherId) {
 		this.teacherId = teacherId;
 	}
 	public String getName() {
@@ -49,13 +48,6 @@ public class Teacher {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	@OneToOne(mappedBy="teacher")
-	public Student getStudent() {
-		return student;
-	}
-	public void setStudent(Student student) {
-		this.student = student;
 	}
 	@OneToMany(mappedBy="teacher",targetEntity=Project.class,cascade=CascadeType.MERGE)
 	public Set<Project> getProject() {

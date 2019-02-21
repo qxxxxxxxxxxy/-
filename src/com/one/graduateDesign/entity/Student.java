@@ -19,7 +19,6 @@ public class Student {
 	private String name;
 	private String college;
 	private String password;
-	private Teacher teacher;
 	private Project project;
 	
 	@Id
@@ -54,14 +53,6 @@ public class Student {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="teacherid")
-	public Teacher getTeacher() {
-		return teacher;
-	}
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
 	}
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="choooseId")
