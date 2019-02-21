@@ -44,7 +44,7 @@ ul, li {
 	cursor:pointer;
 	text-align:center;
 	margin:0 1px 0 0;
-	background-color:#000000;
+	background-color:#4277d7;
 	color:#FFFFFF;
 	font-size:16px;
  filter:alpha(opacity:80);
@@ -65,9 +65,9 @@ ul, li {
 #tab .tab_menu .selected {
 	cursor:pointer;
 	background-color:#FFFFFF;
-	color:#000000;
+	color:#ff730e;
 	font-size:16px;
- filter:alpha(opacity:80);
+    filter:alpha(opacity:80);
 	opacity:0.8;
 }
 .hide {
