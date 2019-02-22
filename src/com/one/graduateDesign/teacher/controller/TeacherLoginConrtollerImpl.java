@@ -28,6 +28,7 @@ public class TeacherLoginConrtollerImpl {
 		Teacher teacher = this.teacherLoginServiceImpl.teacherLogin(teacherId, passWord);
 		if (null != teacher) {
 			request.getSession().setAttribute("teacher", teacher);
+			request.getSession().setAttribute("projectOfTeacher", teacher.getProject());
 			response.sendRedirect("/graduateDesign/teacher/indexOfTeacher.jsp");
 		}
 		else {

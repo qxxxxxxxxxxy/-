@@ -49,31 +49,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <c:forEach items="${projectOfTeacher }" var = "p">
                         <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>                            
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
+                            <td>${p.name }</td>
+                            <td>${teacher.name }</td>                            
+                            <td><a class="btn" href="${s }/deleteProject?projectName=${p.name}&tId=${teacher.teacherId}">删除</a></td>
                         </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>                        
-                        </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
