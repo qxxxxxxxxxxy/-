@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -54,8 +54,8 @@ public class Student {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="choooseId")
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="chooseId")
 	public Project getProject() {
 		return project;
 	}

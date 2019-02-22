@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="s" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,8 +20,8 @@
     			<span>河北师范大学软件学院毕业设计管理平台</span>
     		</div>
     		<div class="body_top_person">
-    			<span>李明&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    			<span><a href="#">退出</a></span>
+    			<span>${teacher.name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    			<span><a href="${s}/teacherExit">退出</a></span>
     		</div>
     	</div>
     	<div class="body_banner">
@@ -76,17 +78,17 @@
                 </table>
             </div>
     		<div class="body_center_form">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="${s }/teacherAddProject" method="post">
                     <div class="form-group">
                         <label for="exampleInputAccount4" class="col-sm-2">课题</label>
                         <div class="col-md-6 col-sm-10">
-                            <input type="text" class="form-control" id="exampleInputAccount4" placeholder="请输入课题名称">
+                            <input type="text" class="form-control" name="projectName"id="exampleInputAccount4" placeholder="请输入课题名称">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword4" class="col-sm-2">导师</label>
                         <div class="col-md-6 col-sm-10">
-                            <input type="password" class="form-control" id="exampleInputPassword4" placeholder="请输入导师姓名">
+                            <input type="text" class="form-control" name="teachersid"id="exampleInputPassword4" placeholder="请输入导师姓名">
                         </div>
                     </div>
                     <div class="form-group">

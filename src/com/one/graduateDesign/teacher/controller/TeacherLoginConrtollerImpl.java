@@ -24,7 +24,7 @@ public class TeacherLoginConrtollerImpl {
 	@RequestMapping(value = "login")
 	public void teacherLogin(@RequestParam String teacherId ,@RequestParam String passWord,
 			Model model,HttpServletRequest request,HttpServletResponse response)throws IOException {
-		System.out.println("asdf");
+//		System.out.println("asdf");
 		Teacher teacher = this.teacherLoginServiceImpl.teacherLogin(teacherId, passWord);
 		if (null != teacher) {
 			request.getSession().setAttribute("teacher", teacher);

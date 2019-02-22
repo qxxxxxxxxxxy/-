@@ -1,10 +1,16 @@
 package com.one.graduateDesign.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,8 +24,9 @@ public class Project {
 
 	private Integer Id;
 	private String name;
+	private int totalNumber;
 	private Teacher teacher;
-	private Student student;
+	private Set<Student>student = new HashSet<Student>();
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
@@ -44,14 +51,20 @@ public class Project {
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
-	@OneToOne(mappedBy="project")
-	public Student getStudent() {
+	
+	@OneToMany(mappedBy="project",targetEntity=Student.class,cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
+	public Set<Student> getStudent() {
 		return student;
 	}
-
-	public void setStudent(Student student) {
+	public void setStudent(Set<Student> student) {
 		this.student = student;
 	}
+	public int getTotalNumber() {
+		return totalNumber;
+	}
+	public void setTotalNumber(int totalNumber) {
+		this.totalNumber = totalNumber;
+	}
 	
-	
+
 }

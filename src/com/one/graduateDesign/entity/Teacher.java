@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -49,7 +50,7 @@ public class Teacher {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@OneToMany(mappedBy="teacher",targetEntity=Project.class,cascade=CascadeType.MERGE)
+	@OneToMany(mappedBy="teacher",targetEntity=Project.class,cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
 	public Set<Project> getProject() {
 		return project;
 	}
