@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.one.graduateDesign.entity.Inform;
 import com.one.graduateDesign.entity.Teacher;
+import com.one.graduateDesign.teacher.service.FindInformServiceImpl;
 import com.one.graduateDesign.teacher.service.TeacherLoginServiceImpl;
 
 @Controller
@@ -20,6 +22,8 @@ public class TeacherLoginConrtollerImpl {
 
 	@Resource
 	private TeacherLoginServiceImpl teacherLoginServiceImpl;
+	@Resource
+	private FindInformServiceImpl findInformServiceImpl;
 	
 	@RequestMapping(value = "login")
 	public void teacherLogin(@RequestParam String teacherId ,@RequestParam String passWord,
@@ -27,6 +31,8 @@ public class TeacherLoginConrtollerImpl {
 //		System.out.println("asdf");
 		Teacher teacher = this.teacherLoginServiceImpl.teacherLogin(teacherId, passWord);
 		if (null != teacher) {
+			Inform inform = this.findInformServiceImpl.findInform(teacherId);
+			request.getSession().setAttribute("inform", inform);
 			request.getSession().setAttribute("teacher", teacher);
 			request.getSession().setAttribute("projectOfTeacher", teacher.getProject());
 			response.sendRedirect("/graduateDesign/teacher/indexOfTeacher.jsp");

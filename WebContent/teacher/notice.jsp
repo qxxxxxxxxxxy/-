@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="s" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,8 +21,8 @@
     			<span>河北师范大学软件学院毕业设计管理平台</span>
     		</div>
     		<div class="body_top_person">
-    			<span>李明&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    			<span><a href="#">退出</a></span>
+    			<span>${teacher.name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    			<span><a href="${s}/teacherExit">退出</a></span>
     		</div>
     	</div>
     	<div class="body_banner">
@@ -39,14 +41,14 @@
         </div>
     	<div class="body_center">
             <div class="notice_form">
-            <form>
+            <form action="${s}/modify" method="post">
                 <div class="form-group">
                     <label for="exampleInputAccount1">通知主题</label>
-                    <input type="text" class="form-control" id="exampleInputAccount1" placeholder="请输入通知主题">
+                    <input type="text" name="theme" class="form-control" id="exampleInputAccount1" placeholder="请输入通知主题">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">发布人</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入发布人姓名">
+                    <input type="text" name="teacherName" class="form-control" id="exampleInputPassword1" placeholder="请输入发布人姓名">
                 </div>
                 <textarea id="content" name="content" class="form-control kindeditor" style="height:150px;">请输入通知内容...</textarea>
                 <button type="submit" class="btn btn-primary" style="margin: 1em auto;">发布通知</button>

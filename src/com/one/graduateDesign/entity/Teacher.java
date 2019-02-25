@@ -22,10 +22,12 @@ public class Teacher {
 	private String name;
 	private String password;
 	private Set<Project>project = new HashSet<Project>();
+	private Inform inform;
 	
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
+	
 	public Integer getId() {
 		return Id;
 	}
@@ -56,6 +58,13 @@ public class Teacher {
 	}
 	public void setProject(Set<Project> project) {
 		this.project = project;
+	}
+	@OneToOne(mappedBy="teacher",targetEntity=Inform.class,cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
+	public Inform getInform() {
+		return inform;
+	}
+	public void setInform(Inform inform) {
+		this.inform = inform;
 	}
 	
 	
