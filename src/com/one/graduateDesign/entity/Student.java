@@ -20,7 +20,7 @@ public class Student {
 	private String college;
 	private String password;
 	private Project project;
-	
+	private String process;
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
@@ -61,6 +61,12 @@ public class Student {
 	}
 	public void setProject(Project project) {
 		this.project = project;
+	}
+	public String getProcess() {
+		return process;
+	}
+	public void setProcess(String process) {
+		this.process = process;
 	}
 	
 	

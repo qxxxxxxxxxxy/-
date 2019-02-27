@@ -49,76 +49,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <c:forEach items="${map }" var="stu">
                         <tr>
-                            <td>张三</td>
-                            <td>闲置品交易平台的设计与实现</td>                            
-                            <td>已开始</td>
+                            <td>${stu.value.name }</td>
+                            <td>${stu.key }</td>                            
+                            <td>${stu.value.process }</td>
                         </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td>已开始</td>
-                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

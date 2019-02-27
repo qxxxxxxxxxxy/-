@@ -20,7 +20,7 @@
     			<span>河北师范大学软件学院毕业设计管理平台</span>
     		</div>
     		<div class="body_top_person">
-    			<span>李明&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    			<span>${stu.name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     			<span><a href="#">退出</a></span>
     		</div>
     	</div>
@@ -46,46 +46,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <c:forEach items="${list }" var="w">
                         <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
+                            <td>${w.name }</td>
+                            <td>${w.teacher.name }</td>
                             <td><button data-toggle="button" class="btn " type="button">选择</button></td>
                         </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
-                        </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
-                        </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
-                        </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
-                        </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
-                        </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
-                        </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
-                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

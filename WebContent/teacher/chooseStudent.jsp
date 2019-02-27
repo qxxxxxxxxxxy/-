@@ -21,7 +21,7 @@
     			<span>河北师范大学软件学院毕业设计管理平台</span>
     		</div>
     		<div class="body_top_person">
-    			<span>李明&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    			<span>${teacher.name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     			<span><a href="#">退出</a></span>
     		</div>
     	</div>
@@ -87,14 +87,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="body_center_page">
-                <ul class="pager">
-                    <li class="previous"><a href="#">«</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li class="next"><a href="#">»</a></li>
-                </ul>
             </div>
         </div>
         <div class="body_bottom">
