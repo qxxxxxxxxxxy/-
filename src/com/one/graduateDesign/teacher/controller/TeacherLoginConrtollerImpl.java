@@ -38,7 +38,7 @@ public class TeacherLoginConrtollerImpl {
 			response.sendRedirect("/graduateDesign/teacher/indexOfTeacher.jsp");
 		}
 		else {
-			model.addAttribute("inform","用户密码错误");
+			//model.addAttribute("inform","用户密码错误");
 			response.sendRedirect("/graduateDesign/index.jsp");
 		}
 		
