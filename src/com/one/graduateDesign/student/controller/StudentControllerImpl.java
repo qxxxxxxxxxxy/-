@@ -38,4 +38,10 @@ public class StudentControllerImpl {
 			response.sendRedirect("/graduateDesign/index.jsp");
 		}
 	}
+	
+	@RequestMapping(value = "studentExit",method=RequestMethod.GET)
+	public void teacherExit(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		request.removeAttribute("stu");
+		response.sendRedirect("/graduateDesign/index.jsp");
+	}
 }

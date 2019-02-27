@@ -22,7 +22,7 @@
     		</div>
     		<div class="body_top_person">
     			<span>${teacher.name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    			<span><a href="#">退出</a></span>
+    			<span><a href="${s}/teacherExit">退出</a></span>
     		</div>
     	</div>
     	<div class="body_banner">

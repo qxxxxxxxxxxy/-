@@ -21,7 +21,7 @@
     		</div>
     		<div class="body_top_person">
     			<span>${stu.name }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    			<span><a href="#">退出</a></span>
+    			<span><a href="${s}/student/studentExit">退出</a></span>
     		</div>
     	</div>
     	<div class="body_banner">
