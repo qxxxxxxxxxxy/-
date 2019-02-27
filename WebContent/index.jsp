@@ -205,10 +205,10 @@ $(function(){
     <!-- 学生登录开始 -->
     <div>
       <div class="stu_error_box"></div>
-      <form action="" method="post" class="stu_login_error">
+      <form action="${s}/student/login" method="post" class="stu_login_error">
         <div id="username">
           <label>学&nbsp;&nbsp;&nbsp;号：</label>
-          <input type="text" id="stu_username_hide" name="username" value="输入学号" nullmsg="学号不能为空！" datatype="s6-18" errormsg="学号范围在6~18个字符之间！" sucmsg="学号验证通过！"/>
+          <input type="text" id="stu_username_hide" name="studentId" value="输入学号" nullmsg="学号不能为空！" datatype="s6-18" errormsg="学号范围在6~18个字符之间！" sucmsg="学号验证通过！"/>
           <!--ajaxurl="demo/valid.jsp"--> 
         </div>
         <div id="password">
