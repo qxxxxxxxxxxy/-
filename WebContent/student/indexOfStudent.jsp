@@ -40,64 +40,23 @@
     		<div class="body_center_notice">
                 <div id="accordion">
                     <p>
-                        <a href="#collapseExample1" data-toggle="collapse" data-parent="#accordion" class="btn btn-link" style="margin-top:1em;">关于毕业设计的通知1</a>
+                        <a href="#collapseExample1" data-toggle="collapse" data-parent="#accordion" class="btn btn-link" style="margin-top:1em;">请尽快选择题目</a>
                     </p>
                     <div class="collapse" id="collapseExample1">
                         <div class="bg-primary with-padding">
-                            <p>被折叠元素内容。</p>
-                            <p>多个触发元素可以指向同一个折叠内容。</p>
+                            <p>请同学们尽快完成选题工作，及时查看通知。</p>
                         </div>
                     </div>
                     <hr>
                     <p>
-                        <a href="#collapseExample2" data-toggle="collapse" data-parent="#accordion" class="btn btn-link collapsed">关于毕业设计的通知1</a>
+                        <a href="#collapseExample2" data-toggle="collapse" data-parent="#accordion" class="btn btn-link collapsed">${noticeTheme }</a>
                     </p>
                     <div class="collapse" id="collapseExample2">
                         <div class="bg-success with-padding">
-                            <p>被折叠元素内容。</p>
-                            <p>多个触发元素可以指向同一个折叠内容。</p>
+                            <p>${noticeContent }</p>
                         </div>
                     </div>
                     <hr>
-                    <p>
-                        <a href="#collapseExample3" data-toggle="collapse" data-parent="#accordion" class="btn btn-link collapsed">关于毕业设计的通知1</a>
-                    </p>
-                    <div class="collapse" id="collapseExample3">
-                        <div class="bg-danger with-padding">
-                            <p>被折叠元素内容。</p>
-                            <p>多个触发元素可以指向同一个折叠内容。</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <p>
-                        <a href="#collapseExample4" data-toggle="collapse" data-parent="#accordion" class="btn btn-link collapsed">关于毕业设计的通知1</a>
-                    </p>
-                    <div class="collapse" id="collapseExample4">
-                        <div class="bg-primary with-padding">
-                            <p>被折叠元素内容。</p>
-                            <p>多个触发元素可以指向同一个折叠内容。</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <p>
-                        <a href="#collapseExample5" data-toggle="collapse" data-parent="#accordion" class="btn btn-link collapsed">关于毕业设计的通知1</a>
-                    </p>
-                    <div class="collapse" id="collapseExample5">
-                        <div class="bg-success with-padding">
-                            <p>被折叠元素内容。</p>
-                            <p>多个触发元素可以指向同一个折叠内容。</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <p>
-                        <a href="#collapseExample6" data-toggle="collapse" data-parent="#accordion" class="btn btn-link collapsed">关于毕业设计的通知1</a>
-                    </p>
-                    <div class="collapse" id="collapseExample6">
-                        <div class="bg-danger with-padding">
-                            <p>被折叠元素内容。</p>
-                            <p>多个触发元素可以指向同一个折叠内容。</p>
-                        </div>
-                    </div>
                 </div>
             </div>
     	</div>

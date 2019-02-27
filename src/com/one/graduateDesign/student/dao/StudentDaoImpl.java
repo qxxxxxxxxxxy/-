@@ -15,12 +15,39 @@ public class StudentDaoImpl {
 	@Resource
 	private SessionFactory sessionFactory;
 	
+	/*
+	 * 按学号查找学生身份
+	 */
 	public Student judge(String studentId) {
 		String hql = "from Student where studentId = ? ";
 		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
 		q.setParameter(0, studentId);
 		Student s = (Student)q.uniqueResult();
 		return s;
+	}
+	
+	/*
+	 * 学生->课题->老师->通知
+	 */
+	public Inform findNoticeByStudent(String stuId) {
+		String hql = "from Student where studentId = ? ";
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		q.setParameter(0, stuId);
+		Student s = (Student)q.uniqueResult();
+		Inform inform = null;
+		if(s.getProject() != null) {
+			Teacher t = s.getProject().getTeacher();
+			if(t != null) {
+				inform = t.getInform();
+			}
+			else {
+				return inform;
+			}
+		}
+		else {
+			return inform;
+		}
+		return inform;
 	}
 
 }

@@ -25,12 +25,26 @@ public class StudentControllerImpl {
 	@Resource
 	private StudentServiceImpl studentServiceImpl; 
 	
+	/*
+	 * 学生登录
+	 */
 	@RequestMapping(value = "/login",method=RequestMethod.POST)
 	public void studentLogin(@RequestParam("studentId") String studentId ,@RequestParam("password") String passWord,
 			Model model,HttpSession session,HttpServletRequest request,HttpServletResponse response) throws IOException {
 		Student s = studentServiceImpl.studentLogin(studentId, passWord);
 		if(s != null) {
 			session.setAttribute("stu", s);
+			Inform notice = studentServiceImpl.showNotice(studentId);
+			if(notice != null) {
+				String ntTheme = notice.getTheme();
+				String ntCont = notice.getContent();
+				session.setAttribute("noticeTheme", ntTheme);
+				session.setAttribute("noticeContent", ntCont);
+			}
+			else {
+				session.setAttribute("noticeTheme", "");
+				session.setAttribute("noticeContent", "");
+			}
 			response.sendRedirect("/graduateDesign/student/indexOfStudent.jsp");
 		}
 		else {
@@ -39,8 +53,11 @@ public class StudentControllerImpl {
 		}
 	}
 	
+	/*
+	 * 学生退出
+	 */
 	@RequestMapping(value = "studentExit",method=RequestMethod.GET)
-	public void teacherExit(HttpServletRequest request,HttpServletResponse response) throws IOException {
+	public void studentExit(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		request.removeAttribute("stu");
 		response.sendRedirect("/graduateDesign/index.jsp");
 	}
