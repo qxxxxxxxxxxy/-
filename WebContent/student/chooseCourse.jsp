@@ -29,7 +29,7 @@
                 <span><a href="indexOfStudent.jsp">通知</a></span>
             </div>
             <div class="body_banner_stu2" style="height:100%;">
-                <span><a href="chooseCourse.jsp">选题</a></span>
+                <span><a href="${s }/findAll">选题</a></span>
             </div>
             <div class="body_banner_stu3" style="height:100%;">
                 <span><a href="process.jsp">进度管理</a></span>
@@ -46,11 +46,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <p align="center">${tot }</p>
                     <c:forEach items="${list }" var="w">
                         <tr>
                             <td>${w.name }</td>
                             <td>${w.teacher.name }</td>
-                            <td><button data-toggle="button" class="btn " type="button">选择</button></td>
+                            <td><a href="${s }/choose?id=${w.id }">选择</button></td>
                         </tr>
                     </c:forEach>
                     </tbody>
