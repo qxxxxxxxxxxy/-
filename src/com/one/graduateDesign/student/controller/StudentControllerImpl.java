@@ -35,7 +35,7 @@ public class StudentControllerImpl {
 		if(s != null) {
 			session.setAttribute("stu", s);
 			Inform notice = studentServiceImpl.showNotice(studentId);
-			if(notice != null) {
+			if(s.getStatus().equals("1")) {
 				String ntTheme = notice.getTheme();
 				String ntCont = notice.getContent();
 				session.setAttribute("noticeTheme", ntTheme);

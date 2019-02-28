@@ -21,7 +21,7 @@ public class FindAllStudentsServiceImpl {
 		int a = Integer.parseInt(id);
 		ArrayList<Student> list = (ArrayList) this.studentDaoImpl.findAllStudent();
 		for (Student object : list) {
-			if(object.getStatus().equals("1")) {
+			if(object.getTeacherStatus().equals("1")) {
 				return true;
 			}
 			else 

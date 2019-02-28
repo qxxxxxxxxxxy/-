@@ -51,40 +51,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>张三</td>
-                            <td>大数据</td>                            
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
+                    <c:forEach items="${map }" var="stu">
                         <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
+                            <td>${stu.value.name }</td>
+                            <td>${stu.key }</td>                            
+                            <td><a href="${s }/delete?studId=${stu.value.name}">删除</a></td>
                         </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>                        
-                        </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
-                        <tr>
-                            <td>考研信息交流平台</td>
-                            <td>张三</td>                            
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
-                        <tr>
-                            <td>闲置品网络交易平台</td>
-                            <td>李四</td>
-                            <td><button data-toggle="button" class="btn " type="button">删除</button></td>
-                        </tr>
+                    </c:forEach>                           
                     </tbody>
                 </table>
             </div>

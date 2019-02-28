@@ -22,6 +22,8 @@ public class Student {
 	private Project project;
 	private String process;
 	private String status;
+	private String teacherStatus;
+	
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
@@ -74,6 +76,12 @@ public class Student {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getTeacherStatus() {
+		return teacherStatus;
+	}
+	public void setTeacherStatus(String teacherStatus) {
+		this.teacherStatus = teacherStatus;
 	}
 	
 	
