@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.one.graduateDesign.entity.Project;
 import com.one.graduateDesign.entity.Student;
+import com.one.graduateDesign.student.service.FindAllStudentsServiceImpl;
 import com.one.graduateDesign.student.service.FindTotalServiceImpl;
 import com.one.graduateDesign.student.service.StudentChooseProjectServiceImpl;
 
@@ -22,18 +23,26 @@ public class StudentChooseProjectControllerImpl {
 	private FindTotalServiceImpl findTotalServiceImpl;
 	@Resource
 	private StudentChooseProjectServiceImpl studentChooseProjectSercviceImpl;
+	@Resource
+	private FindAllStudentsServiceImpl findAllStudentServiceImpl; 
 	
 	@RequestMapping(value="choose")
 	public void studentChooseProject(HttpSession session, @RequestParam String id, HttpServletResponse response)
 			throws IOException {
 		Project p = this.findTotalServiceImpl.find(id);
-		if (p.getTotalNumber() < 3) {
-			session.removeAttribute("tot");
-			Student student = (Student) session.getAttribute("stu");
-			this.studentChooseProjectSercviceImpl.StudentChooseProject(id, student);
-			response.sendRedirect("/graduateDesign/student/indexOfStudent.jsp");
-		} else {
-			session.setAttribute("tot", "名额已满");
+		if(this.findAllStudentServiceImpl.findStudent(id)) {
+			if (p.getTotalNumber() < 3) {
+				session.removeAttribute("tot");
+				Student student = (Student) session.getAttribute("stu");
+				this.studentChooseProjectSercviceImpl.StudentChooseProject(id, student);
+				response.sendRedirect("/graduateDesign/student/indexOfStudent.jsp");
+			} else {
+				session.setAttribute("tot", "名额已满");
+				response.sendRedirect("/graduateDesign/student/chooseCourse.jsp");
+			}
+		}
+		else {
+			session.setAttribute("tot", "请不要重复选课");
 			response.sendRedirect("/graduateDesign/student/chooseCourse.jsp");
 		}
 	}

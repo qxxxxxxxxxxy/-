@@ -59,6 +59,7 @@ public class StudentControllerImpl {
 	@RequestMapping(value = "studentExit",method=RequestMethod.GET)
 	public void studentExit(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		request.removeAttribute("stu");
+		request.removeAttribute("tot");
 		response.sendRedirect("/graduateDesign/index.jsp");
 	}
 }

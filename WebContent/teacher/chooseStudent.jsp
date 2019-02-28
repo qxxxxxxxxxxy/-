@@ -45,7 +45,7 @@
                     <thead>
                         <tr>
                             <th>姓名</th>
-                            <th>方向</th>
+                            <th>所选课题</th>
                             <th>删除</th>                        
                         </tr>
                     </thead>

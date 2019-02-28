@@ -24,6 +24,7 @@ public class StudentChooseProjectServiceImpl {
 		Project p = this.findProjectByIdDaoImpl.findProjectById(a);
 		p.setTotalNumber((p.getTotalNumber() + 1));
 	    stu.setProject(p);
+	    stu.setStatus("1");
 	    this.studentChooseProjectDapImpl.update(p, stu);
 	}
 }
