@@ -40,7 +40,7 @@ public class TeacherLoginConrtollerImpl {
 			request.getSession().setAttribute("inform", inform);
 			request.getSession().setAttribute("teacher", teacher);
 			request.getSession().setAttribute("projectOfTeacher", teacher.getProject());
-			Map<String, Student> map = this.processOfStudentServiceImpl.process(teacher);
+			Map<Student, String> map = this.processOfStudentServiceImpl.process(teacher);
 			request.getSession().setAttribute("map",map);
 			response.sendRedirect("/graduateDesign/teacher/indexOfTeacher.jsp");
 		} else {

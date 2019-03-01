@@ -46,6 +46,7 @@
                         <tr>
                             <th>姓名</th>
                             <th>所选课题</th>
+                            <th>选择学生</th>
                             <th>删除</th>                        
                         </tr>
                     </thead>
@@ -53,9 +54,10 @@
                         <tr>
                     <c:forEach items="${map }" var="stu">
                         <tr>
-                            <td>${stu.value.name }</td>
-                            <td>${stu.key }</td>                            
-                            <td><a href="${s }/delete?studId=${stu.value.name}">删除</a></td>
+                            <td>${stu.key.name }</td>
+                            <td>${stu.value }</td>
+                            <td><a href="${s }/chooseS?studId=${stu.key.getStudentId()}">选择学生</a></td>                            
+                            <td><a href="${s }/deleteS?studId=${stu.key.getStudentId()}">删除</a></td>
                         </tr>
                     </c:forEach>                           
                     </tbody>

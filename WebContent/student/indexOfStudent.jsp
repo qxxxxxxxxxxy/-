@@ -33,7 +33,7 @@
                 <span><a href="${s }/findAll">选题</a></span>
             </div>
             <div class="body_banner_stu3" style="height: 100%;">
-                <span><a href="process.jsp">进度管理</a></span>
+                <span><a href="${s }/student/ifSuccess?studentId=${stu.studentId}">进度管理</a></span>
             </div>
     	</div>
     	<div class="body_center">

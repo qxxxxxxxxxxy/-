@@ -11,6 +11,7 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.one.graduateDesign.entity.Inform;
+import com.one.graduateDesign.entity.Project;
 import com.one.graduateDesign.entity.Student;
 import com.one.graduateDesign.entity.Teacher;
 
@@ -60,5 +61,33 @@ public class StudentDaoImpl {
 		ArrayList list = (ArrayList) query.list();
 		return list;
 	}
-
+	/*找到学生*/
+    public Student findStudent(String stuId) {
+    	String hql = "from Student where studentId = ? ";
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		q.setParameter(0, stuId);
+		Student s = (Student)q.uniqueResult();
+    	return s;
+    }
+    
+    /*查找学生所选课题*/
+    public Project findProjectByStudentId(String stuId) {
+    	String hql = "from Student where studentId = ? ";
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		q.setParameter(0, stuId);
+		Student s = (Student)q.uniqueResult();
+		Project proj = s.getProject();
+		return proj;
+    }
+    
+    /*学生进度更新*/
+    public Student stuProcess(String stuId,String proc) {
+    	String hql = "from Student where studentId = ? ";
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		q.setParameter(0, stuId);
+		Student s = (Student)q.uniqueResult();
+		s.setProcess(proc);
+		this.sessionFactory.getCurrentSession().update(s);
+		return s;
+    }
 }

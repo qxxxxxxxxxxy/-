@@ -35,7 +35,7 @@
                 <span><a href="chooseStudent.jsp">管理学生</a></span>
             </div>
             <div class="body_banner_stu4" style="height: 100%;">
-                <span><a href="procControl.jsp">查看学生进程</a></span>
+                <span><a href="${s }/processs">查看学生进程</a></span>
             </div>
         </div>
     	<div class="body_center">

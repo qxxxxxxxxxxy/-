@@ -35,7 +35,7 @@
                 <span><a href="chooseStudent.jsp">管理学生</a></span>
             </div>
             <div class="body_banner_stu4" style="height: 100%;background-color: #e6e6e6;">
-                <span><a href="procControl.jsp">查看学生进程</a></span>
+                <span><a href="${s }/processs">查看学生进程</a></span>
             </div>
         </div>
     	<div class="body_center">
@@ -49,11 +49,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${map }" var="stu">
+                    <c:forEach items="${Maap }" var="stu">
                         <tr>
-                            <td>${stu.value.name }</td>
-                            <td>${stu.key }</td>                            
-                            <td>${stu.value.process }</td>
+                            <td>${stu.key.name }</td>
+                            <td>${stu.value }</td>                            
+                            <td>${stu.key.process }</td>
                         </tr>
                     </c:forEach>
                     </tbody>

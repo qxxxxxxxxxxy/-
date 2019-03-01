@@ -14,15 +14,16 @@ import com.one.graduateDesign.entity.Teacher;
 
 @Service
 @Transactional(readOnly = false)
-public class ProcessOfStudentServiceImpl {
-	public Map<Student, String> process(Teacher t) {
+public class StudentProcessServiceImpl {
+
+	public Map<Student, String> findProcess(Teacher t) {
 		Map<Student, String> map = new HashMap();
 		Set<Project> set = new HashSet();
 		set = t.getProject();
 		for (Project object : set) {
 			for (Student stu : object.getStudent()) {
-				if(stu.getTeacherStatus().equals("0") && stu.getStatus().equals("1")) {
-					System.out.println(object.getName());
+				if(stu.getTeacherStatus().equals("1")) {
+//					System.out.println(object.getName());
 					map.put(stu, object.getName());
 				}
 			}

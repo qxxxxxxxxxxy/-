@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.one.graduateDesign.entity.Inform;
+import com.one.graduateDesign.entity.Project;
 import com.one.graduateDesign.entity.Student;
-import com.one.graduateDesign.entity.Teacher;
 import com.one.graduateDesign.student.service.StudentServiceImpl;
 
 @Controller
@@ -35,7 +35,7 @@ public class StudentControllerImpl {
 		if(s != null) {
 			session.setAttribute("stu", s);
 			Inform notice = studentServiceImpl.showNotice(studentId);
-			if(s.getStatus().equals("1")) {
+			if(s.getTeacherStatus().equals("1")) {
 				String ntTheme = notice.getTheme();
 				String ntCont = notice.getContent();
 				session.setAttribute("noticeTheme", ntTheme);
@@ -61,5 +61,64 @@ public class StudentControllerImpl {
 		request.removeAttribute("stu");
 		request.removeAttribute("tot");
 		response.sendRedirect("/graduateDesign/index.jsp");
+	}
+	/*查看是否选课成功*/
+	@RequestMapping(value = "ifSuccess")
+	public void ifSuccess(@RequestParam("studentId") String stuId,HttpServletRequest request,
+			HttpServletResponse response,HttpSession session) throws IOException {
+		int ts = studentServiceImpl.ifSuccess(stuId);
+		if(ts == 1) {
+			Project proj = studentServiceImpl.findProjectByStudentId(stuId);
+			String pName = proj.getName();
+			String tName = proj.getTeacher().getName();
+			session.setAttribute("pName", pName);
+			session.setAttribute("tName", tName);
+			session.setAttribute("ts", "选题成功");
+			int sProc = studentServiceImpl.findProcess(stuId);
+			if(sProc == 0) {
+				session.setAttribute("sProc", "未开始");
+			}
+			if(sProc == 1) {
+				session.setAttribute("sProc", "已开始");
+			}
+			if(sProc == 2) {
+				session.setAttribute("sProc", "已完成");
+			}
+			if(sProc == 3) {
+				session.setAttribute("sProc", "已提交");
+			}
+			response.sendRedirect("/graduateDesign/student/process.jsp");
+		}
+		else {
+			session.setAttribute("pName", "");
+			session.setAttribute("tName", "");
+			session.setAttribute("ts", "尚未选题");
+			session.setAttribute("sProc", "");
+			response.sendRedirect("/graduateDesign/student/process.jsp");
+		}
+	}
+	
+	/*进度管理*/
+	@RequestMapping(value = "stuProcess",method=RequestMethod.POST)
+	public void stuProcess(@RequestParam("proc") String proc,@RequestParam("stuId") String stuId,HttpServletRequest request,
+			HttpServletResponse response,HttpSession session) throws IOException {
+		int ts = studentServiceImpl.ifSuccess(stuId);
+		if(ts == 1) {
+			Student s = studentServiceImpl.stuProcess(stuId, proc);
+			String stuProc = s.getProcess();
+			if(stuProc.equals("1")) {
+				session.setAttribute("sProc", "已开始");
+			}
+			if(stuProc.equals("2")) {
+				session.setAttribute("sProc", "已完成");
+			}
+			if(stuProc.equals("3")) {
+				session.setAttribute("sProc", "已提交");
+			}
+			response.sendRedirect("/graduateDesign/student/process.jsp");
+		}
+		else {
+			response.sendRedirect("/graduateDesign/student/process.jsp");
+		}
 	}
 }

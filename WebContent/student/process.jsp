@@ -36,20 +36,50 @@
             </div>
         </div>
     	<div class="body_center">
-            <div class="body_center_form">
-                <form>
+    	    <div class="myproject">
+    	        <table class="table">
+                    <thead>
+                        <tr>
+                            <th>题目</th>
+                            <th>老师</th>
+                            <th>选择成功</th>
+                            <th>课题进度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${pName }</td>
+                            <td>${tName }</td>
+                            <td>${ts }</td>
+                            <td>${sProc }</td>
+                        </tr>
+                    </tbody>
+                </table>
+    	    </div>
+            <div class="body_center_form" style="border:1px red solid">
+                <form action="${s}/student/stuProcess?proc=1&stuId=${stu.studentId}" method="post">
     		        <div class="body_process1">
                         <div class="switch">
                             <input type="checkbox">
                             <label>已开始</label>
                         </div>
                     </div>
+                    <div class="body_process_save">
+                        <button class="btn btn-block " type="commit">保存状态</button>
+                    </div>
+                </form>
+                <form action="${s}/student/stuProcess?proc=2&stuId=${stu.studentId}" method="post">
                     <div class="body_process2">
                         <div class="switch">
                             <input type="checkbox">
                             <label>已完成</label>
                         </div>
                     </div>
+                    <div class="body_process_save">
+                        <button class="btn btn-block " type="commit">保存状态</button>
+                    </div>
+                </form>
+                <form action="${s}/student/stuProcess?proc=3&stuId=${stu.studentId}" method="post">
                     <div class="body_process3">
                         <div class="switch">
                             <input type="checkbox">

@@ -22,11 +22,11 @@ public class FindAllStudentsServiceImpl {
 		ArrayList<Student> list = (ArrayList) this.studentDaoImpl.findAllStudent();
 		for (Student object : list) {
 			if(object.getTeacherStatus().equals("1")) {
-				return true;
+				return false;
 			}
 			else 
-				return false;
+				return true;
 		}
-		return false;
+		return true;
 	}
 }
