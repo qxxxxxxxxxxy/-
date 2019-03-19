@@ -56,7 +56,7 @@
                     </tbody>
                 </table>
     	    </div>
-            <div class="body_center_form" style="border:1px red solid">
+            <div class="body_center_form" >
                 <form action="${s}/student/stuProcess?proc=1&stuId=${stu.studentId}" method="post">
     		        <div class="body_process1">
                         <div class="switch">

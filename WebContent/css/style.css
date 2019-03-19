@@ -64,14 +64,14 @@ body,html{
 .body_top_person span a:hover {color:#ff730e;}
 
 .body_banner{
-	border:1px red solid;
+	
 	width: 100%;
 	height: 6%;
 	background-color: #FFFFFF;
 }
 
 .body_center{
-	border:1px red solid;
+	
 	margin:0.5em auto;
 	width: 80%; 
 	height: 79%;

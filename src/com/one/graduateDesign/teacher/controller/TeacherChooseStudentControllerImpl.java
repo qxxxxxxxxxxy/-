@@ -16,6 +16,7 @@ import com.one.graduateDesign.entity.Student;
 import com.one.graduateDesign.entity.Teacher;
 import com.one.graduateDesign.teacher.service.ChooseStudentServiceImpl;
 import com.one.graduateDesign.teacher.service.ProcessOfStudentServiceImpl;
+import com.one.graduateDesign.teacher.service.StudentProcessServiceImpl;
 
 @Controller
 public class TeacherChooseStudentControllerImpl {
@@ -24,6 +25,8 @@ public class TeacherChooseStudentControllerImpl {
 	private ChooseStudentServiceImpl chooseStudentServiceImpl;
 	@Resource
 	private ProcessOfStudentServiceImpl processOfStudentImpl;
+	@Resource
+	private StudentProcessServiceImpl studentProcessServiceImpl;
 	
 	@RequestMapping(value = "chooseS")
 	public void chooseStu(HttpSession session,HttpServletResponse response,
@@ -38,7 +41,10 @@ public class TeacherChooseStudentControllerImpl {
 				it.remove();
 			}
 		}
+		session.removeAttribute("Maap");
 		session.setAttribute("map",map);
+		Map <Student,String> mapp = this.studentProcessServiceImpl.findProcess(t);
+		session.setAttribute("Maap", map);
 		response.sendRedirect("/graduateDesign/teacher/chooseStudent.jsp");
 	}
 }

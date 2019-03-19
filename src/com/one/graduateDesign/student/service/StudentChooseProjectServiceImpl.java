@@ -25,6 +25,7 @@ public class StudentChooseProjectServiceImpl {
 		p.setTotalNumber((p.getTotalNumber() + 1));
 	    stu.setProject(p);
 	    stu.setStatus("1");
+	    stu.setProcess("0");
 	    this.studentChooseProjectDapImpl.update(p, stu);
 	}
 }
