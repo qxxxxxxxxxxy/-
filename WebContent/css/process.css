@@ -10,7 +10,13 @@
 }
 
 .body_center_form{
+	border:1em #f7f7f7 solid;
 	width: 40%;
 	height: 60%;
+	margin: 1em auto;
+}
+
+.myproject{
+	width: 80%;
 	margin: 1em auto;
 }

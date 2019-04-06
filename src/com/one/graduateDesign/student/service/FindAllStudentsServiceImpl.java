@@ -17,11 +17,10 @@ public class FindAllStudentsServiceImpl {
 	@Resource
 	private StudentDaoImpl studentDaoImpl;
 	
-	public Boolean findStudent(String id) {
-		int a = Integer.parseInt(id);
+	public Boolean findStudent(int id) {
 		ArrayList<Student> list = (ArrayList) this.studentDaoImpl.findAllStudent();
 		for (Student object : list) {
-			if(object.getId() == a) {
+			if(object.getId() == id) {
 				if(object.getTeacherStatus().equals("1"))
 					return false;
 				else
@@ -30,6 +29,6 @@ public class FindAllStudentsServiceImpl {
 			else 
 				return true;
 		}
-		return true;
+		return false;
 	}
 }

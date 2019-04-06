@@ -30,7 +30,8 @@ public class StudentChooseProjectControllerImpl {
 	public void studentChooseProject(HttpSession session, @RequestParam String id, HttpServletResponse response)
 			throws IOException {
 		Project p = this.findTotalServiceImpl.find(id);
-		if(this.findAllStudentServiceImpl.findStudent(id)) {
+		Student s = (Student) session.getAttribute("stu");
+		if(this.findAllStudentServiceImpl.findStudent(s.getId())) {
 			if (p.getTotalNumber() < 3) {
 				session.removeAttribute("tot");
 				Student student = (Student) session.getAttribute("stu");
