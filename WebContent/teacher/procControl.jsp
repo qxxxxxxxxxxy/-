@@ -53,9 +53,12 @@
                         <tr>
                             <td>${stu.key.name }</td>
                             <td>${stu.value }</td>                            
-                            <td>${stu.key.process }</td>
+                            <td>${stu.key.process}</td>
                         </tr>
                     </c:forEach>
+                    <tr>
+                    	<td>0代表未开始，1代表已开始，2代表已完成，3代表已提交</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
