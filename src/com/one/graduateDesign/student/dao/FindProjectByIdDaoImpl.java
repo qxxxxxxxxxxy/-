@@ -16,7 +16,7 @@ public class FindProjectByIdDaoImpl {
 
 	public Project findProjectById(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("from Project where id = ?");
+		Query q = session.createQuery("from Project where id = ?").setCacheable(true);
 		q.setParameter(0, id);
 		Project p = (Project)q.uniqueResult();
 		session.clear();

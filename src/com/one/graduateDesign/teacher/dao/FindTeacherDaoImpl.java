@@ -15,7 +15,7 @@ public class FindTeacherDaoImpl {
 	private SessionFactory sessionFactory;
 	
 	public Teacher findByTeacherName(String name) {
-		Query query = this.sessionFactory.getCurrentSession().createQuery("from Teacher where name='"+name+"'");
+		Query query = this.sessionFactory.getCurrentSession().createQuery("from Teacher where name='"+name+"'").setCacheable(true);
 		Teacher teacher = (Teacher)query.uniqueResult();
 		return teacher;
 	}

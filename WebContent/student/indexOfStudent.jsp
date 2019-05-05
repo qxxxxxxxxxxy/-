@@ -53,7 +53,7 @@
                     </p>
                     <div class="collapse" id="collapseExample2">
                         <div class="bg-success with-padding">
-                            <p>${noticeContent }</p>
+                            <a href="${s }/information">${noticeContent }</a>
                         </div>
                     </div>
                     <hr>

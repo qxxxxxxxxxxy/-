@@ -13,7 +13,7 @@ public class TeacherLoginDaoImpl {
 	private SessionFactory sessionFactory;
 	
 	public Teacher findByTeacherId(String id) {
-		Query query = this.sessionFactory.getCurrentSession().createQuery("from Teacher where teacherId='"+id+"'");
+		Query query = this.sessionFactory.getCurrentSession().createQuery("from Teacher where teacherId='"+id+"'").setCacheable(true);
 		Teacher tea = null;
 		tea = (Teacher)query.uniqueResult();
 //		System.out.println(tea.getName());

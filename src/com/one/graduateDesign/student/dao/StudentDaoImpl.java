@@ -11,6 +11,7 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.one.graduateDesign.entity.Inform;
+import com.one.graduateDesign.entity.Information;
 import com.one.graduateDesign.entity.Project;
 import com.one.graduateDesign.entity.Student;
 import com.one.graduateDesign.entity.Teacher;
@@ -25,7 +26,7 @@ public class StudentDaoImpl {
 	 */
 	public Student judge(String studentId) {
 		String hql = "from Student where studentId = ? ";
-		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql).setCacheable(true);
 		q.setParameter(0, studentId);
 		Student s = (Student)q.uniqueResult();
 		return s;
@@ -36,7 +37,7 @@ public class StudentDaoImpl {
 	 */
 	public Inform findNoticeByStudent(String stuId) {
 		String hql = "from Student where studentId = ? ";
-		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql).setCacheable(true);
 		q.setParameter(0, stuId);
 		Student s = (Student)q.uniqueResult();
 		Inform inform = null;
@@ -57,14 +58,14 @@ public class StudentDaoImpl {
 	
 	public List findAllStudent() {
 		Session session = this.sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from Student");
+		Query query = session.createQuery("from Student").setCacheable(true);
 		ArrayList list = (ArrayList) query.list();
 		return list;
 	}
 	/*找到学生*/
     public Student findStudent(String stuId) {
     	String hql = "from Student where studentId = ? ";
-		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql).setCacheable(true);
 		q.setParameter(0, stuId);
 		Student s = (Student)q.uniqueResult();
     	return s;
@@ -73,7 +74,7 @@ public class StudentDaoImpl {
     /*查找学生所选课题*/
     public Project findProjectByStudentId(String stuId) {
     	String hql = "from Student where studentId = ? ";
-		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql).setCacheable(true);
 		q.setParameter(0, stuId);
 		Student s = (Student)q.uniqueResult();
 		Project proj = s.getProject();
@@ -83,11 +84,25 @@ public class StudentDaoImpl {
     /*学生进度更新*/
     public Student stuProcess(String stuId,String proc) {
     	String hql = "from Student where studentId = ? ";
-		Query q = this.sessionFactory.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.getCurrentSession().createQuery(hql).setCacheable(true);
 		q.setParameter(0, stuId);
 		Student s = (Student)q.uniqueResult();
 		s.setProcess(proc);
 		this.sessionFactory.getCurrentSession().update(s);
 		return s;
+    }
+    public Boolean stuInformation(Information information ,String stuId) {
+    	String hql = "from Information where stuId = ?";
+    	Query q = this.sessionFactory.getCurrentSession().createQuery(hql).setCacheable(true);
+    	q.setParameter(0, stuId);
+    	if(q.uniqueResult() != null) {
+    		return true;
+    	}
+    	else {
+    		Session session = this.sessionFactory.getCurrentSession();
+    		session.saveOrUpdate(information);
+    		return true;
+    	}
+		
     }
 }

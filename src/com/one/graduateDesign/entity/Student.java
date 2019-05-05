@@ -9,9 +9,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="STUDENT")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Student {
 	
 	private Integer Id;
@@ -83,6 +86,4 @@ public class Student {
 	public void setTeacherStatus(String teacherStatus) {
 		this.teacherStatus = teacherStatus;
 	}
-	
-	
 }

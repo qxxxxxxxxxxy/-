@@ -13,6 +13,6 @@ public class FindAllCourseDaoImpl {
 	private  SessionFactory sessionFactory;
 	
 	public List findAll() {
-		return this.sessionFactory.getCurrentSession().createQuery("from Project").list();
+		return this.sessionFactory.getCurrentSession().createQuery("from Project").setCacheable(true).list();
 	}
 }

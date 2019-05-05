@@ -8,10 +8,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="INFORM")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Inform {
 	
 	private Integer id;

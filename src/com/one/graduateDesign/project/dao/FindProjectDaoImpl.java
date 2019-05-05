@@ -15,7 +15,7 @@ public class FindProjectDaoImpl {
 	private SessionFactory sessionFactory;
 	
 	public Project FindProjectByName(String name) {
-		Query query = this.sessionFactory.getCurrentSession().createQuery("from Project where name='"+name+"'");
+		Query query = this.sessionFactory.getCurrentSession().createQuery("from Project where name='"+name+"'").setCacheable(true);
 		return (Project)query.uniqueResult();
 	}
 }

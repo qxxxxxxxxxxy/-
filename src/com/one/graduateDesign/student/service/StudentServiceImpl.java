@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.one.graduateDesign.entity.Inform;
+import com.one.graduateDesign.entity.Information;
 import com.one.graduateDesign.entity.Project;
 import com.one.graduateDesign.entity.Student;
 import com.one.graduateDesign.student.dao.StudentDaoImpl;
@@ -82,5 +83,8 @@ public class StudentServiceImpl {
     	}
     	Student s = studentDaoImpl.stuProcess(stuId, proc);
     	return s;
+    }
+    public Boolean stuInfor(Information information,String stuId) {
+    	return this.studentDaoImpl.stuInformation(information,stuId);
     }
 }

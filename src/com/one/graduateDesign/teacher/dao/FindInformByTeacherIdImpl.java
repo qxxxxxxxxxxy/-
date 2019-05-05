@@ -16,7 +16,7 @@ public class FindInformByTeacherIdImpl {
 	private SessionFactory sessionFactory;
 	
 	public Inform findByTeacherId(String id) {
-		Query query = this.sessionFactory.getCurrentSession().createQuery("from Teacher where teacherId=?");
+		Query query = this.sessionFactory.getCurrentSession().createQuery("from Teacher where teacherId=?").setCacheable(true);
 		query.setParameter(0, id);
 //		query.executeUpdate();
 		Teacher teacher = (Teacher)query.uniqueResult();

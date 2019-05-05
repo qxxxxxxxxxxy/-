@@ -14,11 +14,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="PROJECT")
-
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Project {
 
 
@@ -53,6 +55,7 @@ public class Project {
 	}
 	
 	@OneToMany(mappedBy="project",targetEntity=Student.class,cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	public Set<Student> getStudent() {
 		return student;
 	}

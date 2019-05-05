@@ -12,10 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="TEACHER")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Teacher {
 	private Integer Id;
 	private String teacherId;
@@ -53,6 +56,7 @@ public class Teacher {
 		this.password = password;
 	}
 	@OneToMany(mappedBy="teacher",targetEntity=Project.class,cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	public Set<Project> getProject() {
 		return project;
 	}
